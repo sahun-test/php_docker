@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  php:
+    image: sahunsh/php7.0_apache2_15feb21
+    restart: always
+    ports:
+       - 80:80
+       - 443:443 
+    volumes:
+            - ../www:/var/www/html:rw
+            - ./apache2:/etc/php/7.0/apache2
+    network_mode: "host"

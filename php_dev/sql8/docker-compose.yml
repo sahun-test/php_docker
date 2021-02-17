@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql
+    restart: always
+    #command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+       - 3306:3306
+    volumes:
+            - /home/sa_admin/Desktop/docker/sql8/mysql_data:/var/lib/mysql:rw
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - UPLOAD_LIMIT=2048000000
+        # - PMA_ARBITRARY=1
